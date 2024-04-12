@@ -1,4 +1,4 @@
-# :checkered_flag: NOME DO PROJETO
+# :checkered_flag: Alumni.
 
 Breve descrição do que o seu projeto faz.
 
