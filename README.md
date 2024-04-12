@@ -11,17 +11,17 @@ A Plataforma Alumni da Universidade Federal do Ceará - Campus Quixadá tem como
 
 ## :people_holding_hands: Papéis ou tipos de usuário da aplicação
 
-Administradores<br/>
-Alunos<br/>
-Egressos<br/>
+- Administradores<br/>
+- Alunos<br/>
+- Egressos<br/>
 > Tenha em mente que obrigatoriamente a aplicação deve possuir funcionalidades acessíveis a todos os tipos de usuário e outra funcionalidades restritas a certos tipos de usuários.
 
 ## :spiral_calendar: Entidades ou tabelas do sistema
 
-Usuário<br/>
-Publicação<br/>
-Sinalização<br/>
-Comentário
+- Usuário<br/>
+- Publicação<br/>
+- Sinalização<br/>
+- Comentário
 
 ## :triangular_flag_on_post:	 Principais funcionalidades da aplicação
 
