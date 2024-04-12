@@ -25,7 +25,7 @@ A Plataforma Alumni da Universidade Federal do Ceará - Campus Quixadá tem como
 
 ## :triangular_flag_on_post:	 Principais funcionalidades da aplicação
 
-Cada usuário terá seu perfil, no qual ele poderá destacar informações sobre sua trajetória acadêmica e também áreas de interesse.<br/> Os usuários podem realizar públicações e interagir com outras públicações, podendo realizar comentários e demonstrar interesse naquela vaga de estágio apresentada na públicação.<br/> Para gerenciar tudo isso, o administrador do sistema poderá remover públicações de cunho ofensivo e gerir a plataforma, conforme necessário.<br/> Egresso poderá sinalizar disponibilidade para prestação de mentoria.<br/> Aluno poderá sinalizar interesse em mentoria de Egresso.<br/> 
+- Cada usuário terá seu perfil, no qual ele poderá destacar informações sobre sua trajetória acadêmica e também áreas de interesse.<br/> - Os usuários podem realizar públicações e interagir com outras públicações, podendo realizar comentários e demonstrar interesse naquela vaga de estágio apresentada na públicação.<br/> - Para gerenciar tudo isso, o administrador do sistema poderá remover públicações de cunho ofensivo e gerir a plataforma, conforme necessário.<br/> - Egresso poderá sinalizar disponibilidade para prestação de mentoria.<br/> - Aluno poderá sinalizar interesse em mentoria de Egresso.<br/> 
 Descreve ou liste brevemente as principais funcionalidades da aplicação que será desenvolvida. Destaque a funcionalidades que serão acessévies a todos os usuários e aquelas restriras a usuários logados.
 
 
