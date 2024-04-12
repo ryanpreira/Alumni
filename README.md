@@ -4,10 +4,10 @@ A Plataforma Alumni da Universidade Federal do Ceará - Campus Quixadá tem como
 
 ## :technologist: Membros da equipe
 
-Antônio Diogo Monteiro Damascena - 511948<br/>
-Carlos Ryan Pereira Silva - 493471<br/>
-Gabriela Machado Santos - 538229<br/>
-Vinicius Soares Lima - 538188
+- Antônio Diogo Monteiro Damascena - 511948<br/>
+- Carlos Ryan Pereira Silva - 493471<br/>
+- Gabriela Machado Santos - 538229<br/>
+- Vinicius Soares Lima - 538188
 
 ## :people_holding_hands: Papéis ou tipos de usuário da aplicação
 
