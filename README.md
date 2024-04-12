@@ -11,16 +11,16 @@ Vinicius Soares Lima - 538188
 
 ## :people_holding_hands: Papéis ou tipos de usuário da aplicação
 
-Administradores
-Alunos
-Egressos
+Administradores<br/>
+Alunos<br/>
+Egressos<br/>
 > Tenha em mente que obrigatoriamente a aplicação deve possuir funcionalidades acessíveis a todos os tipos de usuário e outra funcionalidades restritas a certos tipos de usuários.
 
 ## :spiral_calendar: Entidades ou tabelas do sistema
 
-Usuário
-Publicação
-Sinalização
+Usuário<br/>
+Publicação<br/>
+Sinalização<br/>
 Comentário
 
 ## :triangular_flag_on_post:	 Principais funcionalidades da aplicação
