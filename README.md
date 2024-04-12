@@ -1,20 +1,27 @@
 # :checkered_flag: Alumni.
 
-Breve descrição do que o seu projeto faz.
+A Plataforma Alumni da Universidade Federal do Ceará - Campus Quixadá tem como objetivo ser uma rede social de livre interação entre alunos e egressos da mesma instituição. Por meio do website, semelhante a abordagens como a da rede social LinkedIn, os estudantes da instituição poderão compartilhar o que desejar de suas vidas acadêmicas e demonstrar interesse em mentorias e oportunidades de estágio sinalizadas por Egressos.
 
 ## :technologist: Membros da equipe
 
-Matrícula, nome e curso dos participantes.
+Antônio Diogo Monteiro Damascena - 511948
+Carlos Ryan Pereira Silva - 493471
+Gabriela Machado Santos - 538229
+Vinicius Soares Lima - 538188
 
 ## :people_holding_hands: Papéis ou tipos de usuário da aplicação
 
-Informe aqui os tipos de usuário que irão interagir com a aplicação. Ex: administrador, locador, locatario, usuário não logado.
-
+Administradores
+Alunos
+Egressos
 > Tenha em mente que obrigatoriamente a aplicação deve possuir funcionalidades acessíveis a todos os tipos de usuário e outra funcionalidades restritas a certos tipos de usuários.
 
 ## :spiral_calendar: Entidades ou tabelas do sistema
 
-Liste as principais entidades do sistema.
+Usuário
+Publicação
+Sinalização
+Comentário
 
 ## :triangular_flag_on_post:	 Principais funcionalidades da aplicação
 
