@@ -25,6 +25,7 @@ Comentário
 
 ## :triangular_flag_on_post:	 Principais funcionalidades da aplicação
 
+Os usuários podem realizar públicações e interagir com outras públicações, podendo realizar comentários e demonstrar interesse naquela vaga de estágio apresentada na públicação. Além disso, cada usuário terá seu perfil, no qual ele poderá destacar informações sobre sua tragetória acadêmica e também áreas de interesse. Para gerenciar tudo isso, o administrador do sistema poderá remover públicações de cunho ofensivo e administrar a página, conforme necessário.
 Descreve ou liste brevemente as principais funcionalidades da aplicação que será desenvolvida. Destaque a funcionalidades que serão acessévies a todos os usuários e aquelas restriras a usuários logados.
 
 
@@ -39,6 +40,7 @@ Descreve ou liste brevemente as principais funcionalidades da aplicação que se
 
 **Frontend:**
 
+JavaScript (JS), Typescript (TS), HTML e CSS. Para gerenciar o projeto ultilizaremos o SCRUM. 
 Lista as tecnologias, frameworks e bibliotecas utilizados.
 
 **Backend:**
@@ -51,9 +53,9 @@ Lista as tecnologias, frameworks e bibliotecas utilizados.
 
 | Entidade| Criação | Leitura | Atualização | Remoção |
 | --- | --- | --- | --- | --- |
-| Entidade 1 | X |  X  |  | X |
-| Entidade 2 | X |    |  X | X |
-| Entidade 3 | X |    |  |  |
+| Administradores | X | X | X | X |
+| Alunos | X | X |  | X |
+| Egressos | X | X |  | X |
 
 > Lembre-se que é necessário implementar o CRUD de pelo menos duas entidades.
 
