@@ -7,6 +7,7 @@ A Plataforma Alumni da Universidade Federal do Ceará - Campus Quixadá tem como
 - Antônio Diogo Monteiro Damascena - 511948<br/>
 - Carlos Ryan Pereira Silva - 493471<br/>
 - Gabriela Machado Santos - 538229<br/>
+- João Pedro Moraes de Oliveira - 501105<br/>
 - Vinicius Soares Lima - 538188
 
 ## :people_holding_hands: Papéis ou tipos de usuário da aplicação
