@@ -3,13 +3,13 @@ import { getUsers, getUserById, createUser, updateUser, deleteUser } from '../co
 
 const router = Router();
 
-router.post('/user', createUser);
-router.put('/user/updateUser/:id', updateUser);
-router.delete('/user/deleteUser/:id', deleteUser);
+router.post('/student', createUser);
+router.put('/student/updateUser/:id', updateUser);
+router.delete('/student/deleteUser/:id', deleteUser);
 
-router.get('/moderator/getUsers/:id', getUserById);
-router.put('/moderator/updateUser/:id', updateUser);
-router.delete('/moderator/deleteUser/:id', deleteUser);
+router.post('/graduatestudent', createUser);
+router.put('/graduatestudent/updateUser/:id', updateUser);
+router.delete('/graduatestudent/deleteUser/:id', deleteUser);
 
 router.get('/admin/getUsers', getUsers);
 router.get('/admin/getUsers/:id', getUserById);
