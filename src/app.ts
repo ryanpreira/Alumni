@@ -1,7 +1,11 @@
 import express, { Request, Response } from 'express';
+import userRoutes from './routes/userRoutes';
 
 const app = express();
 const PORT = process.env.PORT || 3000;
+
+app.use(express.json());
+app.use('/', userRoutes);
 
 // Middleware para responder a qualquer requisição
 app.use((req: Request, res: Response) => {
