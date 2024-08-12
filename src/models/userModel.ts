@@ -1,13 +1,22 @@
-export interface User {
-  id: number;
-  nome: string;
-  email: string;
-  senha: string;
-  acesso_tipo: string;
-  data_registro: Date;
-}
+import { Entity, PrimaryGeneratedColumn, CreateDateColumn, Column } from "typeorm";
 
-export const users: User[] = [
-  { id: 1, nome: 'Charlotte Emma Aitchison', email: 'charlixcx@gmail.com', senha: 'uguess', acesso_tipo: 'admin', data_registro: new Date() },
-  { id: 2, nome: 'James Thomas Smith', email: 'jamiexx@gmail.com', senha: 'inwaves', acesso_tipo: 'graduate_student', data_registro: new Date() }
-];
+@Entity()
+export class User {
+    @PrimaryGeneratedColumn()
+    id: number;
+
+    @Column()
+    nome: string;
+
+    @Column()
+    email: string;
+
+    @Column()
+    senha: string;
+
+    @Column()
+    acesso_tipo: string;
+
+    @CreateDateColumn()
+    data_registro: Date;
+}

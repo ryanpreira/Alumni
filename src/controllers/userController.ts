@@ -1,9 +1,12 @@
-import { Request, Response } from 'express';
-import { users, User } from '../models/userModel';
+import { Router, Request, Response } from 'express';
+import { User } from '../models/userModel';
+import { AppDataSource } from '../app';
 import * as yup from 'yup';
 
+const router = Router();
+
 const bodyValidation: yup.Schema<User> = yup.object().shape({
-  id: yup.number().required().default(users.length + 1),
+  id: yup.number().required().default(User.length + 1),
   nome: yup.string().required().min(3),
   email: yup.string().email().required(),
   senha: yup.string().required().min(6),
@@ -11,21 +14,36 @@ const bodyValidation: yup.Schema<User> = yup.object().shape({
   data_registro: yup.date().required().default(() => new Date())
 })
 
-export const getUsers = (req: Request, res: Response) => {
+export const getUsers = async (req: Request, res: Response) => {
+  const userRepository = AppDataSource.getRepository(User);
+  const users = await userRepository.find();
   res.json(users);
 };
 
-export const getUserById = (req: Request, res: Response) => {
+export const getUserById = async (req: Request, res: Response) => {
+  const userRepository = AppDataSource.getRepository(User);
+    const user = await userRepository.findOne({
+      where: {
+        id: parseInt(req.params.id),
+      },
+    });
 
-  const user = users.find(u => u.id === parseInt(req.params.id));
-  if (user) {
-    res.json(user);
+    if (user) {
+      res.json(user);
   } else {
-    res.status(404).json({ message: 'User not found' });
+      res.status(404).json({ message: 'Aluno não encontrado' });
   }
+
 };
 
 export const createUser = async (req: Request, res: Response) => {
+  
+  const userRepository = AppDataSource.getRepository(User);
+
+  const existingUser = await userRepository.findOneBy({ email: req.body.email });
+  if (existingUser) {
+    return res.status(400).json({ message: 'Email já está em uso.' });
+  }
 
   let validatedData: User | undefined = undefined;
 
@@ -44,22 +62,21 @@ export const createUser = async (req: Request, res: Response) => {
       errors: {
         default: validationErrors
       }
-    });
-  }
+  });
+}
 
-  const newUser: User = {
-    id: users.length + 1,
-    ...req.body,
-    data_registro: new Date().toISOString()
-  };
-
-  users.push(newUser);
-  res.status(201).json(newUser);
+  const newUser = userRepository.create(req.body);
+  const resul = await userRepository.save(newUser);
+  res.json(resul);
 };
 
 export const updateUser = async (req: Request, res: Response) => {
-  
-  const user = users.find(u => u.id === parseInt(req.params.id));
+  const userRepository = AppDataSource.getRepository(User);
+  const user = await userRepository.findOneBy({ id: parseInt(req.params.id) });
+
+  if (!user) {
+    return res.status(404).json({ message: 'Usuário não encontrado.' });
+  }
 
   let validatedData: User | undefined = undefined;
 
@@ -81,24 +98,31 @@ export const updateUser = async (req: Request, res: Response) => {
     });
   }
 
-  if (user) {
-    Object.assign(user, req.body);
-    res.json(user);
-  } else {
-    res.status(404).json({ 
-      message: 'User not found' 
-    });
+  if (validatedData?.email && validatedData.email !== user.email) {
+    const existingUser = await userRepository.findOneBy({ email: validatedData.email });
+    if (existingUser) {
+      return res.status(400).json({ message: 'Email já está em uso.' });
+    }
+  }
+    if (user) {
+      userRepository.merge(user, req.body);
+      const resul = await userRepository.save(user);
+      res.json(resul);
+    } else {
+      res.status(404).json({ message: 'Usuário não encontrado.' });
   }
 };
 
-export const deleteUser = (req: Request, res: Response) => {
-  const userIndex = users.findIndex(u => u.id === parseInt(req.params.id));
-  if (userIndex !== -1) {
-    users.splice(userIndex, 1);
-    res.status(204).send();
+export const deleteUser = async (req: Request, res: Response) => {
+  const userRepository = AppDataSource.getRepository(User);
+  const user = await userRepository.findOneBy({ id: parseInt(req.params.id) });
+
+  if (user) {
+    await userRepository.delete({ id: parseInt(req.params.id) });
+    res.status(200).json({ message: 'Usuário removido.' });
   } else {
-    res.status(404).json({
-      message: 'User not found'
-    });
+    res.status(404).json({ message: 'Usuário não encontrado.' });
   }
 };
+
+export default router;
