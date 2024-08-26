@@ -1,20 +1,14 @@
 import express from 'express';
-import { Request, Response } from 'express';
+import { AppDataSource } from './DataSource';
+import routes from './routes/userRoutes';
+import authRoutes from './routes/authRoutes';
 import cors from 'cors';
 import "reflect-metadata";
-import routes from './routes/userRoutes';
-import { DataSource } from 'typeorm';
-import { User } from './models/userModel';
 
-export const AppDataSource = new DataSource({
-    type: "sqlite",
-    database: "./data/labs.db",
-    synchronize: true,
-    logging: false,
-    entities: [User],
-});
 
-AppDataSource.initialize()
+async function startServer() {
+  try {
+    await AppDataSource.initialize()
   .then(() => {
 
     const app = express();
@@ -23,9 +17,10 @@ AppDataSource.initialize()
     app.use(cors());
     app.use(express.json());
 
-    app.use('/', routes);
+    app.use('/', authRoutes);
+    app.use('/users', routes);
 
-    app.use((req: Request, res: Response) => {
+    app.use((req, res) => {
       res.send(`
         <html>
           <head><title>Projeto Final</title></head>
@@ -53,6 +48,11 @@ AppDataSource.initialize()
       console.log(`Server is running on http://localhost:${PORT}`);
     });
   })
-  .catch((err) => {
-    console.error('Error during Data Source initialization:', err);
-  });
+}
+  catch(e) {
+    console.error(e)
+    throw e
+  }
+}
+
+startServer()
