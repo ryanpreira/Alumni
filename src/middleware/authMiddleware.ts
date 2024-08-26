@@ -38,6 +38,6 @@ export function authorizeAdmin(req: CustomizaRequest, res: Response, next: NextF
     return res.status(403).json({
         status: 403,
         name: 'Forbidden Error',
-        message: 'Acesso restrito ao administrador.'
+        message: 'Acesso restrito Ao administrador.'
     });
 }
