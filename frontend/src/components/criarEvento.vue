@@ -13,7 +13,8 @@ export default {
       imagem: '',
       overlayVisible: false,
       overlay: false,
-      idUser: null, 
+      idUser: null,
+      papel: '',
       editingEventId: null,
       msgSucesso: false,
       msgFalha: false
@@ -183,7 +184,7 @@ export default {
             'Authorization': `Bearer ${token}`,
           },
         });
-
+        this.papel = response.data.papel;
         console.log(this.events[1].idUser.id);
         console.log(this.idUser);
       } catch (error) {
@@ -245,7 +246,7 @@ export default {
               {{ data.descricao }}
 
               <div
-                v-if="Number(idUser) === data.idUser.id"
+                v-if="Number(idUser) === data.idUser.id || papel === 'administrador'"
                 style="display: flex;justify-content: space-between;margin-top: 35px"
                 class="eventBotoes"
               >
@@ -290,7 +291,7 @@ export default {
           <input style="margin-bottom: 5px" type="file" id="imgUpload" @change="onImageSelected" accept="image/*" />
         </div>
 
-        <button id="publicar" type="submit">Publicar</button>
+        <button id="publicar" type="submit">{{ editingEventId ? 'Atualizar' : 'Publicar' }}</button>
       </form>
     </div>
   </div>
