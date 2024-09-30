@@ -116,20 +116,22 @@ router.post('/', upload.single("file"), async (req, res) => {
 
 
 router.put('/:id', authenticateJWT, upload.single("file"), async (req: CustomizaRequest, res) => {
-    const { id } = req.params
-    const { nome, sobrenome, email, senha, confirmarSenha, bio, formacao, tags, events, ano, matriculaCPF, papel } = req.body
+    const { id } = req.params;
+    const { nome, sobrenome, email, senha, confirmarSenha, bio, formacao, tags, events, ano, matriculaCPF, papel } = req.body;
 
     const file = req.file?.filename;
 
+    // Verifica se o usuário está autenticado
     if (!req.user || typeof req.user.userId !== 'number') {
         return res.status(401).json({
             status: 401,
             name: 'Unauthorized',
-            message: 'Usuário não Autenticado.'
+            message: 'Usuário não autenticado.'
         });
     }
 
-    if (parseInt(id) !== req.user.userId && req.user.papel !== 'Administrador') {
+    // Verifica se o usuário tem permissão para atualizar os dados
+    if (parseInt(id) !== req.user.userId && req.user.papel !== 'administrador') {
         return res.status(403).json({
             status: 403,
             name: 'Forbidden Error',
@@ -137,51 +139,74 @@ router.put('/:id', authenticateJWT, upload.single("file"), async (req: Customiza
         });
     }
 
-    const userRepository = AppDataSource.getRepository(User)
+    const userRepository = AppDataSource.getRepository(User);
 
     const user = await userRepository.findOne({
         where: {
             id: parseInt(id)
         }
-    })
+    });
 
-
-    if(!user) {
+    // Verifica se o usuário existe
+    if (!user) {
         return res.status(404).json({
             error: {
                 status: 404,
                 name: 'NotFound',
                 message: 'Usuário não encontrado.'
             }
-        })
+        });
     }
 
+    // Verifica se o email já está em uso por outro usuário
     const existingUser = await userRepository.findOneBy({ email: req.body.email });
-    if (existingUser === req.body.email) {
+    if (existingUser && existingUser.id !== user.id) {
         return res.status(400).json({
             message: 'Email já está em uso.'
         });
     }
 
-    user.nome = nome || user.nome
-    user.sobrenome = sobrenome || user.sobrenome
-    user.email = email || user.email
-    user.formacao = formacao || user.formacao
-    user.tags = tags || user.tags
-    user.bio = bio || user.bio
-    user.ano = ano || user.ano
-    user.matriculaCPF = matriculaCPF || user.matriculaCPF
-    user.file = file || user.file
-    user.events = events || user.events
+    // Atualiza os campos do usuário
+    user.nome = nome || user.nome;
+    user.sobrenome = sobrenome || user.sobrenome;
+    user.email = email || user.email;
+    user.formacao = formacao || user.formacao;
+    user.tags = tags || user.tags;
+    user.bio = bio || user.bio;
+    user.ano = ano || user.ano;
+    user.matriculaCPF = matriculaCPF || user.matriculaCPF;
+    user.file = file || user.file;
+    user.events = events || user.events;
 
+    // Verifica se o campo "senha" foi enviado
+    if (senha) {
+        // Verifica se a senha e a confirmação de senha coincidem
+        if (senha !== confirmarSenha) {
+            return res.status(400).json({
+                error: {
+                    status: 400,
+                    name: 'Validation error',
+                    message: 'As senhas não coincidem.'
+                }
+            });
+        }
 
-    userRepository.save(user)
-    res.status(200).json({
+        // Aplica o hash na nova senha
+        const hashedPassword = bcrypt.hashSync(senha, 10);
+        user.senha = hashedPassword;
+    }
+
+    // Salva as atualizações no banco de dados
+    await userRepository.save(user);
+
+    // Retorna o usuário atualizado
+    return res.status(200).json({
         data: user
-    })
-})
+    });
+});
 
-router.delete('/:id', authorizeAdmin, async (req, res) => {
+
+router.delete('/:id', authenticateJWT, authorizeAdmin, async (req, res) => {
     const userRepository = AppDataSource.getRepository(User);
     const user = await userRepository.findOneBy({ id: parseInt(req.params.id) });
 

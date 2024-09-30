@@ -11,6 +11,7 @@ import Sobre from '../src/views/sobre.vue';
 import Eventos from './views/eventos.vue';
 import EventoIndividual from './views/eventoIndividual.vue';
 import naoEncontrado from './views/naoEncontrado.vue';
+import EdicaoPerfil from './views/edicaoPerfil.vue';
 
 const routes = [
   {
@@ -59,12 +60,19 @@ const routes = [
   {
     path: '/eventos',
     name: 'Eventos',
-    component: Eventos
+    component: Eventos,
+    meta: { requiresAuth: true },
   },
   {
     path: '/evento/:id',
     name: 'eventoIndividual',
-    component: EventoIndividual  },
+    component: EventoIndividual,
+    meta: { requiresAuth: true },  },
+    {
+      path: '/edicaoPerfil',
+      name: 'edicaoPerfil',
+      component: EdicaoPerfil,
+      meta: { requiresAuth: true },  },
   {
     path: '/404',
     name: 'naoEncontrado',

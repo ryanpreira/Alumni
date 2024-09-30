@@ -157,7 +157,7 @@ methods: {
 
 <template>
   <div v-if="overlayVisible" class="dark-overlay"></div>
-    <div class="perfilHeader">
+    <div style="position: relative" class="perfilHeader">
         <div class="retorno">
             <router-link to="/home"><img class="retornoIcone" src=".././assets/001-back.png"/></router-link>
         </div>
@@ -168,6 +168,11 @@ methods: {
                 <h1 style="color: black;margin-bottom: 10%;">{{ nome }}</h1>
                 <p>{{ formacao }}</p>
             </div>
+            <div class="editDiv">
+          <router-link to="/edicaoPerfil"><img style="position: absolute; margin-top: 20px;height: 22px;right: 9%" src="./../assets/edit.png"></router-link>
+          <img style="position: absolute; margin-top: 20px;height: 22px;right: 7%" src="./../assets/download.png">
+
+        </div>
         </div>
     </div>
 
@@ -358,7 +363,7 @@ methods: {
 }
 .perfilHeader {
     background-color: #E3E7FF;
-    height: 250px;
+    height: 280px;
     border-radius: 0px 0px 120px 120px;
     border: 1px solid black;
     width: 94.8em;
