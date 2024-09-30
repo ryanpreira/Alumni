@@ -1,5 +1,6 @@
 {
   "compilerOptions": {
+    "types": ["vite/client", "vue-router"],
     /* Visit https://aka.ms/tsconfig to read more about this file */
 
     /* Projects */

@@ -45,22 +45,26 @@ Descreve ou liste brevemente as principais funcionalidades da aplicação que se
 
 **Frontend:**
 
-JavaScript (JS), Typescript (TS), HTML e CSS. Para gerenciar o projeto ultilizaremos o SCRUM. 
-Lista as tecnologias, frameworks e bibliotecas utilizados.
+Javascript
+Typescript
+HTML e CSS
+Vue.JS
 
 **Backend:**
 
-Lista as tecnologias, frameworks e bibliotecas utilizados.
-
+Typescript
+Sqlite
+Multer
+Express
+Bcrypt
 
 ## :shipit: Operações implementadas para cada entidade da aplicação
 
 
 | Entidade| Criação | Leitura | Atualização | Remoção |
 | --- | --- | --- | --- | --- |
-| Administradores | X | X | X | X |
-| Alunos | X | X |  | X |
-| Egressos | X | X |  | X |
+| Post | X | X |  | X |
+| User | X | X | x | X |
 
 > Lembre-se que é necessário implementar o CRUD de pelo menos duas entidades.
 
@@ -68,5 +72,15 @@ Lista as tecnologias, frameworks e bibliotecas utilizados.
 
 | Método HTTP | URL |
 | --- | --- |
-| GET | api/entidade1/|
-| POST | api/entidade2 |
+| GET | api/users|
+| GET | api/posts|
+| GET | api/users/:id|
+| GET | api/posts/:id|
+| GET | api/logout|
+| POST | api/login/|
+| POST | api/users/|
+| POST | api/posts/|
+| PUT | api/users/:id|
+| PUT | api/posts/:id|
+| DELETE | api/users/:id|
+| DELETE | api/posts/:id|
