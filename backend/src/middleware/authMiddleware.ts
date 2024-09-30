@@ -33,11 +33,7 @@ export function authenticateJWT(req: CustomizaRequest, res: Response, next: Next
 }
 
 export function authorizeAdmin(req: CustomizaRequest, res: Response, next: NextFunction) {
-<<<<<<< HEAD:Alumni/backend/src/middleware/authMiddleware.ts
     console.log("Verificando usuário:", req.user); // Adicione este log
-=======
-    console.log("Verificando usuário:", req.user);
->>>>>>> 6becf4075ef95794e44937edff6b7685a7ef3c65:backend/src/middleware/authMiddleware.ts
 
     if(req.user && req.user.papel === "administrador"){
         return next();
