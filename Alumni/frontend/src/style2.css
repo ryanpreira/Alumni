@@ -1,0 +1,319 @@
+/* * {
+    margin: 0;
+    padding: 0px;
+    line-height: normal;
+  }
+  
+  body {
+    background-color: #f2f3ff;
+    font-family: "Montserrat", sans-serif;
+  }
+  
+  .logo {
+    height: 64.5px;
+    object-fit: cover;
+  }
+  
+  .nav-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+  }
+  
+  ul {
+    display: flex;
+    list-style: none;
+    gap: 1rem;
+  }
+  
+  ul li a {
+    text-decoration: none;
+    color: #1e1e1e;
+    cursor: pointer;
+  }
+  
+  ul li :hover {
+    color: #5bacdf;
+  }
+  
+  .hero {
+    background-image: url(./assets/hero_background.png);
+    background-size: cover;
+    height: 700px;
+  
+    display: flex;
+    flex-direction: column;
+  
+    align-items: baseline;
+    justify-content: end;
+  
+    justify-content: space-between;
+  
+    padding: 2rem 4rem;
+  }
+  
+  .hero_logo {
+    padding-top: 12rem;
+    width: 30%;
+  }
+  
+  .hero_social {
+    height: 2rem;
+  }
+  
+  .cadastro {
+    color: #fff;
+    background-color: #2e2e81;
+    padding: 0.5rem 0.9rem;
+    border-radius: 0.5rem;
+    cursor: pointer;
+  }
+  
+  .cadastro:hover {
+    color: #fff;
+    background-color: #011927;
+  }
+  
+  .login {
+    color: #1e1e1e;
+    background-color: #b8b8b8;
+    padding: 0.5rem 0.9rem;
+    border-radius: 0.5rem;
+  }
+  
+  .login:hover {
+    color: #1e1e1e;
+    background-color: #999999;
+  }
+  
+  .Sobre {
+    display: flex;
+    margin-top: 5rem;
+    padding: 0 4rem;
+    justify-content: space-around;
+    align-items: center;
+  }
+  
+  .title-a {
+    position: relative;
+    font-size: 72px;
+    letter-spacing: -0.03em;
+    line-height: 120%;
+    display: inline-block;
+    font-family: Inter;
+    color: #373737;
+    text-align: center;
+  }
+  
+  .texto-laranja {
+    color: #ff8a00;
+  }
+  
+  .subtitle-txt {
+    width: 100%;
+  }
+  .subtitle-a {
+    width: 753px;
+    position: relative;
+    font-size: 32px;
+    line-height: 120%;
+    font-family: Inter;
+    text-align: left;
+    align-items: center;
+    color: #1e1e1e;
+  }
+  
+  .btn-azul {
+    color: #fff;
+    background-color: #2e2e81;
+    padding: 0.5rem 0.9rem;
+    border-radius: 1.5rem;
+    cursor: pointer;
+  }
+  
+  .btn-azul:hover {
+    color: #fff;
+    background-color: #011927;
+  }
+  
+  .direita-qr {
+    width: 30%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .direita-qr img {
+    width: 75%;
+  }
+  
+  .direita {
+    width: 30%;
+  }
+  
+  .direita img {
+    width: 100%;
+  }
+  
+  .esquerda {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: start;
+    gap: 1rem;
+  }
+  
+  .Doacao {
+    display: flex;
+    margin-top: 5rem;
+    justify-content: space-around;
+    align-items: center;
+    background-color: #2e2e81;
+    padding: 2rem 4rem;
+  }
+  
+  .Noticias {
+    display: flex;
+    margin-top: 5rem;
+    justify-content: space-around;
+    align-items: center;
+    padding: 2rem 4rem;
+  }
+  
+  .title-b {
+    position: relative;
+    font-size: 72px;
+    letter-spacing: -0.03em;
+    line-height: 120%;
+    display: inline-block;
+    font-family: Inter;
+    color: #fff;
+    text-align: center;
+  }
+  
+  .subtitle-b {
+    width: 753px;
+    position: relative;
+    font-size: 32px;
+    line-height: 120%;
+    font-family: Inter;
+    color: #fff;
+    text-align: left;
+    display: flex;
+    align-items: center;
+  }
+  
+  .btn-branco {
+    color: #011927;
+    background-color: #fff;
+    padding: 0.5rem 0.9rem;
+    border-radius: 1.5rem;
+    cursor: pointer;
+  }
+  
+  .btn-branco:hover {
+    color: #011927;
+    background-color: #fff;
+  }
+  
+  .card {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 1rem;
+    width: 440px;
+    background-color: #fff;
+    padding: 24px;
+    border-radius: 8px;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border: 1px solid #d9d9d9;
+  }
+  .card h4 {
+    font-size: 2rem;
+  }
+  
+  .card p {
+    color: #757575;
+  }
+  
+  .voltar {
+    padding: 30px;
+    display: flex;
+    align-items: center;
+  }
+  
+  .voltar img {
+    width: 20px;
+    height: auto;
+  }
+  
+  .voltar h1 {
+    color: #757575;
+    font-size: 1.4rem;
+    font-weight: 200;
+    margin-left: 0.8rem;
+  }
+  
+  .direita-abrac {
+    width: 30%;
+  }
+  
+  .direita-abrac img {
+    width: 132%;
+    margin: 0;
+  }
+  .colagem-doao-1 {
+    background-image: url(./assets/colagem-doação.png);
+    background-size: cover;
+    height: 400px;
+  
+    display: flex;
+    flex-direction: column;
+  
+    align-items: baseline;
+    justify-content: end;
+  
+    justify-content: space-between;
+  
+    padding: 6rem 10rem;
+  }
+  .footer {
+    background: #2E2E81;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 35px;
+    width: 94.94em;
+    margin-top: 50px;
+    bottom: 0;
+  }
+  .footerDados {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .logofooter {
+    height: 5%;
+    width: 5%;
+    margin-left: 20px;
+  }
+  .ufcLogo {
+    height: 4%;
+    width: 4%;
+    margin-left: 40px;
+  }
+  .contatos, .endereco, .redesSociais {
+    margin-left: 40px;
+    color: white;
+  }
+  #redes {
+    margin-left: 11px;
+    height: 30px;
+    width: 30px;
+  }
+  .redes {
+    align-items: center;
+  } */
