@@ -19,7 +19,7 @@ data() {
         sobrenome: '',
         senha: '',
         confirmarSenha: '',
-        imagePreview: '', // Adicionando nova propriedade para a pré-visualização
+        imagePreview: '',
         file: '',
         idUser: '',
         fileUser: '',
@@ -59,7 +59,7 @@ methods: {
 
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!emailRegex.test(this.email)) {
-      this.emailInvalido = true; // Exibe mensagem de erro
+      this.emailInvalido = true;
       console.log('E-mail inválido');
       return;
     } else {
@@ -73,25 +73,25 @@ methods: {
         }
     });
 
-    console.log('Status da resposta:', response.status); // Adicionando log do status
-    console.log('Dados da resposta:', response.data); // Log do corpo da resposta
+    console.log('Status da resposta:', response.status);
+    console.log('Dados da resposta:', response.data);
 
     if (response.status === 400) {
         if (response.data.message === 'Email já está em uso.') {
-            this.emailIndisponivel = true; // Ativa o estado para o email em uso
-            this.mensagemErro = response.data.message; // Armazena a mensagem de erro
+            this.emailIndisponivel = true; 
+            this.mensagemErro = response.data.message;
         } else {
-            alert(response.data.message); // Mensagem de erro genérica
+            alert(response.data.message);
         }
         return false;
     }
 
-    console.log('Usuário atualizado com sucesso:', response.data.data.file); // Exibe os dados do usuário atualizado
+    console.log('Usuário atualizado com sucesso:', response.data.data.file); 
     return true;
 } catch (error) {
-  console.error('Erro ao atualizar usuário:', error.response.data); // Para ver a resposta do servidor
-  this.emailIndisponivel = true; // Ativa o estado para o email em uso
-    console.error('Configuração da requisição:', error.config); // Para ver a configuração da requisição
+  console.error('Erro ao atualizar usuário:', error.response.data);
+  this.emailIndisponivel = true;
+    console.error('Configuração da requisição:', error.config);
     return false;
 }
 
@@ -121,7 +121,7 @@ methods: {
     const file = event.target.files[0];
     console.log("File selected:", file);
     if (file) {
-      this.fileUser = ''; // Limpa fileUser quando uma nova imagem é selecionada
+      this.fileUser = '';
       this.file = file;
       this.imagePreview = URL.createObjectURL(file);
     } else {
@@ -129,7 +129,7 @@ methods: {
     }
   },
     triggerFileInput() {
-    this.$refs.fileInput.click(); // Simula o clique no input de arquivo
+    this.$refs.fileInput.click();
   }
   },
   mounted() {
@@ -148,36 +148,16 @@ methods: {
     <div style="display: flex" class="cardEdicao">
       
       <div class="cardImagem">
-  <img 
-    v-if="fileUser" 
-    class="imgPerfilEdicao" 
-    :src="`http://localhost:3000/uploads/${fileUser}`" 
-    @click="triggerFileInput" 
-    style="cursor: pointer; clip-path: circle(50px at center);" 
+  <img v-if="fileUser" class="imgPerfilEdicao" :src="`http://localhost:3000/uploads/${fileUser}`" @click="triggerFileInput" style="cursor: pointer; clip-path: circle(50px at center);" 
   />
 
-  <img 
-    v-else-if="!imagePreview" 
-    class="imgPerfilEdicao" 
-    src=".././assets/account.png" 
-    @click="triggerFileInput" 
-    style="cursor: pointer; clip-path: circle(50px at center);" 
+  <img v-else-if="!imagePreview" class="imgPerfilEdicao" src=".././assets/account.png" @click="triggerFileInput" style="cursor: pointer; clip-path: circle(50px at center);" 
   />
   
-  <img 
-    v-else 
-    class="imgPerfilEdicao" 
-    :src="imagePreview" 
-    @click="triggerFileInput" 
-    style="cursor: pointer; clip-path: circle(50px at center);" 
+  <img v-else class="imgPerfilEdicao" :src="imagePreview" @click="triggerFileInput" style="cursor: pointer; clip-path: circle(50px at center);" 
   />
 
-  <input 
-    type="file" 
-    @change="onFileSelected" 
-    accept="image/*" 
-    style="display: none;" 
-    ref="fileInput" 
+  <input type="file" @change="onFileSelected" accept="image/*" style="display: none;" ref="fileInput" 
   />
 </div>
     
@@ -227,7 +207,7 @@ methods: {
   background-color: #FF262A;
 }
 .card input {
-  margin: 0.5em 0; /* Adiciona espaço em cima e embaixo do input */
+  margin: 0.5em 0;
 }
 label {
   margin-bottom: 10px;
